@@ -16,6 +16,9 @@ import random
 import sys
 import glob
 
+import json
+from datetime import datetime
+
 from math import sqrt
 from utils.gradflow_check import plot_grad_flow
 from utils.EMA import EMA
@@ -29,6 +32,30 @@ from utils.loss import build_loss
 from utils.warmup_lr import LinearWarmup
 import shutil
 from utils.flops import get_info
+
+class EpochLogger:
+    def __init__(self, save_folder):
+        self.save_folder = save_folder
+        self.epoch_logs = []
+        self.log_file = os.path.join(save_folder, "epoch_training_log.json")
+        self.txt_log_file = os.path.join(save_folder, "epoch_training_log.txt")
+        
+        # Initialize log files
+        with open(self.txt_log_file, "w") as f:
+            f.write(f"Training started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write("="*80 + "\n")
+    
+    def log_epoch(self, epoch_info):
+        self.epoch_logs.append(epoch_info)
+        # Save to JSON
+        with open(self.log_file, "w") as f:
+            json.dump(self.epoch_logs, f, indent=2)
+        # Save to text
+        with open(self.txt_log_file, "a") as f:
+            f.write(f"Epoch {epoch_info['epoch']:3d} | "
+                   f"Avg Loss: {epoch_info['avg_loss']:.6f} | "
+                   f"LR: {epoch_info['learning_rate']:.2e} | "
+                   f"Time: {epoch_info['epoch_time']:.2f}s\n")
 
 
 def train_model(config):
@@ -79,14 +106,22 @@ def train_model(config):
     max_epoch         = config['max_epoch'] 
     lr_decay          = config['lr_decay']
     save_folder       = config['save_folder']
+
+    logger = EpochLogger(config['save_folder'])
     
     torch.backends.cudnn.benchmark = True
     cur_epoch = 1
-    loss_acc = 0.0
+    # loss_acc = 0.0
     ema = EMA(model)
+    training_start_time = time.time()
 
     while(cur_epoch <= max_epoch):
+        epoch_start_time = time.time()  # ADD THIS LINE
+        epoch_losses = []
         cnt_pram_update = 0
+        loss_acc = 0.0
+
+
         for iteration, (batch_clip, batch_bboxes, batch_labels) in enumerate(dataloader): 
 
             batch_size   = batch_clip.shape[0]
@@ -125,16 +160,40 @@ def train_model(config):
                 ema.update(model)
 
                 print("epoch : {}, update : {}, loss = {}".format(cur_epoch,  cnt_pram_update, loss_acc), flush=True)
-                with open(os.path.join(config['save_folder'], "logging.txt"), "w") as f:
-                    f.write("epoch : {}, update : {}, loss = {}".format(cur_epoch,  cnt_pram_update, loss_acc))
+                
+                # REPLACE the existing file write with this:
+                with open(os.path.join(config['save_folder'], "logging.txt"), "a") as f:  # Changed "w" to "a"
+                    f.write("epoch : {}, update : {}, loss = {}\n".format(cur_epoch,  cnt_pram_update, loss_acc))
 
+                epoch_losses.append(loss_acc)  # ADD THIS LINE
                 loss_acc = 0.0
-                #if cnt_pram_update % 500 == 0:
-                    #torch.save(model.state_dict(), r"/home/manh/Projects/My-YOWO/weights/model_checkpoint/epch_{}_update_".format(cur_epoch) + str(cnt_pram_update) + ".pth")
+
+        current_lr = optimizer.param_groups[0]['lr']
+        epoch_end_time = time.time()
+        epoch_time = epoch_end_time - epoch_start_time
+        total_time = epoch_end_time - training_start_time
+        avg_loss = np.mean(epoch_losses) if epoch_losses else 0.0
+        
+        # Create epoch info
+        epoch_info = {
+            "epoch": cur_epoch,
+            "avg_loss": avg_loss,
+            "min_loss": np.min(epoch_losses) if epoch_losses else 0.0,
+            "max_loss": np.max(epoch_losses) if epoch_losses else 0.0,
+            "learning_rate": current_lr,
+            "epoch_time": epoch_time,
+            "total_time": total_time,
+            "num_updates": cnt_pram_update,
+            "timestamp": datetime.now().isoformat()
+        }
+
 
         if cur_epoch in adjustlr_schedule:
             for param_group in optimizer.param_groups: 
                 param_group['lr'] *= lr_decay
+            epoch_info["lr_adjusted"] = True  # ADD THIS LINE
+        else:
+            epoch_info["lr_adjusted"] = False  # ADD THIS LINE
         
         #          model.state_dict()
         save_path_ema = os.path.join(save_folder, "ema_epoch_" + str(cur_epoch) + ".pth")
@@ -142,8 +201,15 @@ def train_model(config):
 
         save_path     = os.path.join(save_folder, "epoch_"     + str(cur_epoch) + ".pth")
         torch.save(model.state_dict(), save_path)
+        save_path = os.path.join(save_folder, "epoch_" + str(cur_epoch) + ".pth")
+        torch.save(model.state_dict(), save_path)
+
+        
+        logger.log_epoch(epoch_info)
+        print(f"Epoch {cur_epoch} completed | Avg Loss: {avg_loss:.6f} | Time: {epoch_time:.2f}s", flush=True)
 
         print("Saved model at epoch : {}".format(cur_epoch), flush=True)
+        cur_epoch += 1
 
         #log_path = '/home/manh/Projects/YOLO2Stream/training.log'
         #map50, mean_ap = call_eval(save_path)
