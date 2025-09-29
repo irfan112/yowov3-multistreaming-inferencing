@@ -116,3 +116,10 @@ trained **YOWO** using two different 3D backbones: **I3D** and **ResNet-3D**.
 - **I3D Backbone** started with a lower loss and converged more smoothly.  
 - **ResNet-3D Backbone** had a higher initial loss but showed consistent improvement and comparable convergence by epoch 7.  
 - Both models benefited from gradual learning rate decay.  
+
+## References
+
+- *Extension of* [Hope1337 / YOWOv3](https://github.com/Hope1337/YOWOv3)  
+- *YOWOv2 implementation* — [yjh0410 / YOWOv2](https://github.com/yjh0410/YOWOv2)  
+- *Related document / paper overview* — “YOWOv3: A Lightweight Framework for Spatio-Temporal Action Detection” on Studocu  
+  (https://www.studocu.vn/vn/document/van-lang-university/tu-tuong-ho-chi-minh/yowov3-a-lightweight-framework-for-spatio-temporal-action-detection/130031369)  
