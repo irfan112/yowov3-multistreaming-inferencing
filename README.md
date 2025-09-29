@@ -86,3 +86,19 @@ python main.py -m multistreaming_live -cf config/cf2/ucf_config.yaml
 <pre>
 python main.py -m live -cf config/cf2/ucf_config.yaml
 </pre>
+
+
+<h2>Multistreaming Example</h2>
+
+<table>
+  <tr>
+    <td align="center">
+      <video src="output/v_Basketball_g22_c01_detections_20250929_120428.mp4" width="400" controls></video>
+      <p><b>Basketball Stream</b></p>
+    </td>
+    <td align="center">
+      <video src="output/v_Diving_g15_c05_detections_20250929_120428.mp4" width="400" controls></video>
+      <p><b>Diving Stream</b></p>
+    </td>
+  </tr>
+</table>
