@@ -29,3 +29,30 @@ Download from:
 Google Drive Link
 </a>
 </p>
+
+
+<h2>Pretrained Weights & Checkpoints</h2>
+<p>
+To train or evaluate <b>YOWO (I3D / ResNet)</b>, you need to download the pretrained weights 
+and checkpoints provided here:
+</p>
+<p>
+<a href="https://drive.google.com/drive/folders/1TYrbwfOy9eRQhNQhOk4JJnd4N-rcKReV?usp=sharing" target="_blank">
+Google Drive - YOWO (I3D / ResNet) Checkpoints
+</a>
+</p>
+
+<p>
+After downloading, place the files into the corresponding <code>weights/</code> or <code>checkpoints/</code> 
+folder in this repository (create them if they don’t exist).
+</p>
+
+<pre>
+yowov3-multistreaming-inferencing/
+│── weights/
+│   ├── yowo_i3d.pth
+│   ├── yowo_resnet.pth
+│── checkpoints/
+│   ├── checkpoint_epoch_XX.pth
+</pre>
+
