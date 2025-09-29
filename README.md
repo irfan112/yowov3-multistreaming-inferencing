@@ -2,21 +2,18 @@
 YOWOv3(Spatio Temporal Action Detection task) using (UCF101-24) dataset. The repo is extension of https://github.com/Hope1337/YOWOv3, https://arxiv.org/pdf/2408.02623
 
 
-<h2>🚀 Environment Setup</h2>
+<h2>Environment Setup</h2>
 
 <p><b>Clone this repository:</b></p>
 <pre>
 git clone https://github.com/irfan112/yowov3-multistreaming-inferencing.git
 </pre>
 
-
-<p><b>Manual setup:</b></p>
 <p>Use <code>Python 3.8</code> or <code>Python 3.9</code>, and then install the dependencies:</p>
 <pre>
 pip install -r requirements.txt
 </pre>
 
-<p><b>Note:</b> On my system, I used <code>Python 3.7</code> with slightly different dependencies:</p>
 <pre>
 pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 \
   --extra-index-url https://download.pytorch.org/whl/cu117
