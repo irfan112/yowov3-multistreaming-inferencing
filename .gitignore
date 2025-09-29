@@ -1,5 +1,4 @@
 ucf24/
 checkpoint/
 output/
-weights/backbone2D/
-weights/backbone3D/
+weights/
