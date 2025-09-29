@@ -56,3 +56,33 @@ yowov3-multistreaming-inferencing/
 │   ├── checkpoint_epoch_XX.pth
 </pre>
 
+
+<h2>Video Source Configuration</h2>
+<p>
+You can specify your video inputs in a <code>.env</code> file. 
+These sources can be either <b>local video files</b> or <b>RTSP streams from live cameras</b>.
+</p>
+
+<h3>Example (.env)</h3>
+
+<pre>
+# Primary video sources (can be RTSP streams or video files)
+VIDEO_SOURCE_1=ucf24/videos/Basketball/v_Basketball_g22_c01.mp4
+
+# Example RTSP live camera stream
+VIDEO_SOURCE_1=rtsp://admin:password@192.168.1.100:554/cam/realmonitor?channel=1&subtype=1
+</pre>
+
+<p>
+Once your <code>.env</code> is configured, run YOWOv3 with one of the following modes:
+</p>
+
+<h3>🔹 Multistreaming Mode</h3>
+<pre>
+python main.py -m multistreaming_live -cf config/cf2/ucf_config.yaml
+</pre>
+
+<h3>🔹 Single Live Mode (Original YOWOv3)</h3>
+<pre>
+python main.py -m live -cf config/cf2/ucf_config.yaml
+</pre>
