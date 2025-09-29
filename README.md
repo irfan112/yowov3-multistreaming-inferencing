@@ -88,16 +88,16 @@ python main.py -m live -cf config/cf2/ucf_config.yaml
 </pre>
 
 
-<h2>Multistreaming</h2>
+<h2>Multistreaming Example</h2>
 
 <table>
   <tr>
     <td align="center">
-      <video src="output/basketball.gif" width="400" controls></video>
+      <img src="/media/cv/47147876-7940-488e-acb2-0ebc8e3c3679/home/repos/yowov3-multistreaming-inferencing/output/basketball.gif" width="400" />
       <p><b>Basketball Stream</b></p>
     </td>
     <td align="center">
-      <video src="output/Diving.gif" width="400" controls></video>
+      <img src="/media/cv/47147876-7940-488e-acb2-0ebc8e3c3679/home/repos/yowov3-multistreaming-inferencing/output/Diving.gif" width="400" />
       <p><b>Diving Stream</b></p>
     </td>
   </tr>
