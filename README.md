@@ -88,18 +88,19 @@ python main.py -m live -cf config/cf2/ucf_config.yaml
 </pre>
 
 
-<h2>Multistreaming</h2>
+<h2>Multistreaming Example</h2>
 
 <table>
   <tr>
     <td align="center">
-      <img src="output/basketball.gif" width="400" />
+      <img src="assets/basketball.gif" width="400" />
       <p><b>Basketball Stream</b></p>
     </td>
     <td align="center">
-      <img src="output/diving.gif" width="400" />
+      <img src="assets/diving.gif" width="400" />
       <p><b>Diving Stream</b></p>
     </td>
   </tr>
 </table>
+
 
