@@ -2,8 +2,8 @@ certifi==2022.12.7
 charset-normalizer==3.3.2
 click==7.1.2
 cycler==0.11.0
-daal==2023.2.1
-daal4py==2023.2.1
+# daal==2023.2.1
+# daal4py==2023.2.1
 filelock==3.12.2
 fonttools==4.38.0
 fsspec==2023.1.0
@@ -46,9 +46,9 @@ tbb==2021.11.0
 termcolor==2.3.0
 thop==0.1.1.post2209072238
 threadpoolctl==3.1.0
-torch
-torchaudio
-torchvision
+# torch
+# torchaudio
+# torchvision
 tqdm==4.66.2
 typer==0.3.2
 typing_extensions==4.7.1

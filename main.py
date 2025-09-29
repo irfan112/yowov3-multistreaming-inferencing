@@ -1,4 +1,4 @@
-from scripts import train, ava_eval, ucf_eval, detect, live, onnx
+from scripts import train, ava_eval, ucf_eval, detect, live, onnx, live_m
 import argparse
 from utils.build_config import build_config
 
@@ -26,6 +26,9 @@ if __name__ == "__main__":
 
     elif args.mode == 'live':
         live.detect(config=config)
+
+    elif args.mode == 'mutistreaming_live':
+        live_m.detect(config=config)
     
     elif args.mode == 'onnx':
         onnx.export2onnx(config=config)

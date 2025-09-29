@@ -69,7 +69,7 @@ def detect(config):
     mapping = config['idx2name']
 
     #FLOPs_and_Params(model, 224, 16, 'cuda')
-    cap = cv2.VideoCapture(0) 
+    cap = cv2.VideoCapture("ucf24/videos/CliffDiving/v_CliffDiving_g16_c03.mp4") 
 
     frame_list = []
     transform = live_transform(config['img_size'])
