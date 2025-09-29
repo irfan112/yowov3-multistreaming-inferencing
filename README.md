@@ -97,7 +97,7 @@ python main.py -m live -cf config/cf2/ucf_config.yaml
       <p><b>Basketball Stream</b></p>
     </td>
     <td align="center">
-      <img src="assets/diving.gif" width="400" />
+      <img src="assets/Diving.gif" width="400" />
       <p><b>Diving Stream</b></p>
     </td>
   </tr>
