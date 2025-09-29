@@ -104,3 +104,15 @@ python main.py -m live -cf config/cf2/ucf_config.yaml
 </table>
 
 
+## Training Info – YOWO (I3D & ResNet-3D Backbones)
+
+trained **YOWO** using two different 3D backbones: **I3D** and **ResNet-3D**.  
+
+<p align="center">
+  <img src="assets/Figure_1.png" width="600" alt="Training Loss Comparison: I3D vs ResNet-3D"/>
+</p>
+
+### 🔹 Observations
+- **I3D Backbone** started with a lower loss and converged more smoothly.  
+- **ResNet-3D Backbone** had a higher initial loss but showed consistent improvement and comparable convergence by epoch 7.  
+- Both models benefited from gradual learning rate decay.  
