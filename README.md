@@ -122,4 +122,10 @@ trained **YOWO** using two different 3D backbones: **I3D** and **ResNet-3D**.
 - *Extension of* [Hope1337 / YOWOv3](https://github.com/Hope1337/YOWOv3)  
 - *YOWOv2 implementation* — [yjh0410 / YOWOv2](https://github.com/yjh0410/YOWOv2)  
 - *Related document / paper overview* — “YOWOv3: A Lightweight Framework for Spatio-Temporal Action Detection” on Studocu  
-  (https://www.studocu.vn/vn/document/van-lang-university/tu-tuong-ho-chi-minh/yowov3-a-lightweight-framework-for-spatio-temporal-action-detection/130031369)  
+  (https://www.studocu.vn/vn/document/van-lang-university/tu-tuong-ho-chi-minh/yowov3-a-lightweight-framework-for-spatio-temporal-action-detection/130031369)
+- *[YOWO](https://github.com/wei-tim/YOWO)* - *the first YOWO series*
+- *[the first YOWO series](https://github.com/dilwolf/YOWOv3-Improved/tree/main)*
+- *[YOLOv8-pt](https://github.com/jahongir7174/YOLOv8-pt* - *neat YOLOv8 PyTorch implementation*
+- *[Efficient-3DCNNs](https://github.com/okankop/Efficient-3DCNNs)* - *3D CNN backbones*
+- *[pytorch-i3d](https://github.com/piergiaj/pytorch-i3d)* — *I3D model implementation*
+- *[AVAv2.2 Evaluation](https://github.com/activitynet/ActivityNet/tree/master/Evaluation)* — *official evaluation code*
