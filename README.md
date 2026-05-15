@@ -124,7 +124,7 @@ trained **YOWO** using two different 3D backbones: **I3D** and **ResNet-3D**.
 - *Related document / paper overview* — “YOWOv3: A Lightweight Framework for Spatio-Temporal Action Detection” on Studocu  
   (https://www.studocu.vn/vn/document/van-lang-university/tu-tuong-ho-chi-minh/yowov3-a-lightweight-framework-for-spatio-temporal-action-detection/130031369)
 - *[YOWO](https://github.com/wei-tim/YOWO)* - *the first YOWO series*
-- *[the first YOWO series](https://github.com/dilwolf/YOWOv3-Improved/tree/main)*
+- *[YOWOv3-Improved](https://github.com/dilwolf/YOWOv3-Improved/tree/main)*
 - *[YOLOv8-pt](https://github.com/jahongir7174/YOLOv8-pt)* - *neat YOLOv8 PyTorch implementation*
 - *[Efficient-3DCNNs](https://github.com/okankop/Efficient-3DCNNs)* - *3D CNN backbones*
 - *[pytorch-i3d](https://github.com/piergiaj/pytorch-i3d)* — *I3D model implementation*
