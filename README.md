@@ -129,4 +129,4 @@ trained **YOWO** using two different 3D backbones: **I3D** and **ResNet-3D**.
 - *[Efficient-3DCNNs](https://github.com/okankop/Efficient-3DCNNs)* - *3D CNN backbones*
 - *[pytorch-i3d](https://github.com/piergiaj/pytorch-i3d)* — *I3D model implementation*
 - *[AVAv2.2 Evaluation](https://github.com/activitynet/ActivityNet/tree/master/Evaluation)* — *official evaluation code*
-- *[Keypoints-Studio](https://github.com/irfan112/Keypoints-Studio/tree/action-recognition)* = *Annotation Tool*
+- *[Keypoints-Studio](https://github.com/irfan112/Keypoints-Studio/tree/action-recognition)* - *Annotation Tool*
